@@ -1,4 +1,4 @@
-package indorse.auth.wizard.authwizard.Model;
+package com.indorse.assign.auth.authwizard.model;
 
 import org.springframework.data.annotation.Transient;
 

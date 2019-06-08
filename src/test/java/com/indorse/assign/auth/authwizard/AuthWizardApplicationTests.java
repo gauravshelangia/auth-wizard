@@ -1,4 +1,4 @@
-package indorse.auth.wizard.authwizard;
+package com.indorse.assign.auth.authwizard;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

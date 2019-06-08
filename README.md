@@ -1,6 +1,6 @@
 # auth-wizard
 
-This application contains simple user auth system with spring boot as multi-module project. 
+This application contains simple user auth system with spring boot. 
 
 ##Requirements
 1. ###Install postgresql 
