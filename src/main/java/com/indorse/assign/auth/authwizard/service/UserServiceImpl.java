@@ -58,6 +58,7 @@ public class UserServiceImpl implements UserService {
     public void saveAndSendConfirmationMail(UserDto userDto) {
         Users users = new Users();
         BeanUtils.copyProperties(userDto, users);
+        users.setEnabled(false);
         users.setConfirmationToken(UUID.randomUUID().toString());
         users = userRepository.save(users);
         emailService.sendUserRegistrationEmail(users);
