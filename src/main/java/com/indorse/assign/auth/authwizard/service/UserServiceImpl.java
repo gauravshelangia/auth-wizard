@@ -4,6 +4,7 @@ import com.indorse.assign.auth.authwizard.dto.UserDto;
 import com.indorse.assign.auth.authwizard.dto.UserLoginDto;
 import com.indorse.assign.auth.authwizard.model.Users;
 import com.indorse.assign.auth.authwizard.repository.UserRepository;
+import com.indorse.assign.auth.authwizard.service.api.EmailService;
 import com.indorse.assign.auth.authwizard.service.api.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,8 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+    @Autowired
+    private EmailService emailService;
 
 
     @Override
@@ -58,7 +60,7 @@ public class UserServiceImpl implements UserService {
         BeanUtils.copyProperties(userDto, users);
         users.setConfirmationToken(UUID.randomUUID().toString());
         users = userRepository.save(users);
-        // TODO SEND cnf email to the user
+        emailService.sendUserRegistrationEmail(users);
 
     }
 
